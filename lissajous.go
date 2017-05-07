@@ -2,16 +2,13 @@
 package main
 
 import (
-	"fmt"
 	"image"
 	"image/color"
 	"image/gif"
 	"io"
 	"math"
 	"math/rand"
-	//"os"
-
-	"github.com/travertischio/addison-wesley/tempconv"
+	"os"
 )
 
 var palette = []color.Color{color.White,
@@ -23,9 +20,7 @@ var palette = []color.Color{color.White,
 	color.RGBA{0xff, 0x00, 0xff, 0xff}}
 
 func main() {
-	//lissajous(os.Stdout)
-	k := tempconv.FToK(212.0)
-	fmt.Printf("%s\n", k)
+	lissajous(os.Stdout)
 }
 
 func lissajous(out io.Writer) {
