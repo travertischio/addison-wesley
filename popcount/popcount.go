@@ -36,3 +36,12 @@ func PopCountShift(x uint64) int {
 	}
 	return count
 }
+
+func PopCountNonZeroShift(x uint64) int {
+	var count int
+	for x > 0 {
+		x = x & (x - 1)
+		count++
+	}
+	return count
+}
