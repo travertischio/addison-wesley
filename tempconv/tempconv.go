@@ -13,8 +13,8 @@ const (
 	BoilingC      Celsius = 100
 
 	AbsoluteZeroK Celsius = 0
-	FreezingC     Celsius = 273.15
-	BoilingC      Celsius = 373.15
+	FreezingK     Celsius = 273.15
+	BoilingK      Celsius = 373.15
 )
 
 func (c Celsius) String() string {
