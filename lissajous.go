@@ -24,8 +24,8 @@ var palette = []color.Color{color.White,
 
 func main() {
 	//lissajous(os.Stdout)
-	c := tempconv.FToC(212.0)
-	fmt.Println("%s\n", c)
+	k := tempconv.FToK(212.0)
+	fmt.Printf("%s\n", k)
 }
 
 func lissajous(out io.Writer) {
