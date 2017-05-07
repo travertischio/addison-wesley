@@ -27,6 +27,12 @@ func BenchmarkPopCountShift(b *testing.B) {
 	}
 }
 
+func BenchmarkPopCountNonZeroShift(b *testing.B) {
+	for i := 0; i < 10000000; i++ {
+		count = popcount.PopCountNonZeroShift(uint64(i))
+	}
+}
+
 func TestDoTheseWorkSingle(t *testing.T) {
 	test := popcount.PopCountSingle(uint64(29))
 	if 4 != test {
@@ -45,6 +51,14 @@ func TestDoTheseWorkLoop(t *testing.T) {
 
 func TestDoTheseWorkShift(t *testing.T) {
 	test := popcount.PopCountShift(uint64(29))
+	if 4 != test {
+		fmt.Printf("%v", test)
+		os.Exit(1)
+	}
+}
+
+func TestDoTheseWorkNonZeroShift(t *testing.T) {
+	test := popcount.PopCountNonZeroShift(uint64(29))
 	if 4 != test {
 		fmt.Printf("%v", test)
 		os.Exit(1)
