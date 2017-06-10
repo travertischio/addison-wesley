@@ -10,6 +10,11 @@ import (
 )
 
 func main() {
+  charcount()
+  wordfreq()
+}
+
+func charcount() {
   counts := make(map[rune]int)
   types := make(map[string]int)
   var utflen [utf8.UTFMax + 1]int
@@ -57,5 +62,20 @@ func main() {
   }
   if invalid > 0 {
     fmt.Printf("\n%d invalid UTF-8 characters\n", invalid)
+  }
+}
+
+func wordfreq() {
+  counts := make(map[string]int)
+
+  in := bufio.NewScanner(os.Stdin)
+  in.Split(bufio.ScanWords)
+  for in.Scan() {
+    word := in.Text()
+    counts[word]++
+  }
+  fmt.Printf("word\tcount\n")
+  for w, n := range counts {
+    fmt.Printf("%s\t%d\n", w, n)
   }
 }
